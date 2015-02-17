@@ -34,10 +34,20 @@ var flatten = function(arr) {
 
 
 /*
-
 Given an array [a1, a2, ..., aN, b1, b2, ..., bN, c1, c2, ..., cN] convert it to [a1, b1, c1, a2, b2, c2, ..., aN, bN, cN]
-
 */
+var zipperize = function (array) {
+  //make 3 sub-arrays, from the example, the array 
+  //will always only contain a, b, and c
+  var subArrayLength = array.length / 3;
+  var zipperized = [];
+  for (var i = 0; i < subArrayLength; i++) {
+    zipperized.push(array[i]);
+    zipperized.push(array[i + subArrayLength]);
+    zipperized.push(array[i + subArrayLength + subArrayLength]);
+  }
+  return zipperized;
+};
 
 
 /*
