@@ -129,5 +129,20 @@ Write a sum method which will work properly when invoked using either syntax bel
 
 console.log(sum(2,3));   // Outputs 5
 console.log(sum(2)(3));  // Outputs 5
-
 */
+var neatSum = function () {
+  var num = arguments[0];
+  var closure = function () {
+    return num + arguments[0];
+  };
+
+  if (arguments.length > 1) {
+    var sum = 0;
+    for ( var i = 0; i < arguments.length; i++) {
+      sum += arguments[i];
+    };
+    return sum;
+  } else {
+      return closure;
+  }
+};
