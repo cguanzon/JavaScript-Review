@@ -14,10 +14,8 @@ var addOneToEachThenSum = function(array){
 };
 
 /*
-
 Write a function that accepts a multi dimensional array and returns a flattened version.
 flatten([1, 2, [3, [4], 5, 6], 7]) // [1, 2, 3, 4, 5, 6, 7]
-
 */
 var flatten = function(arr) {
   var flattened = [];
@@ -31,7 +29,6 @@ var flatten = function(arr) {
   }
   return flattened;
 };
-
 
 /*
 Given an array [a1, a2, ..., aN, b1, b2, ..., bN, c1, c2, ..., cN] 
@@ -50,7 +47,6 @@ var zipperize = function (array) {
   return zipperized;
 };
 
-
 /*
 There is an array of non-negative integers. 
 A second array is formed by shuffling the elements of the first array 
@@ -65,36 +61,66 @@ var findMissingElement = function (beforeArray, afterArray) {
   }
 };
 
-
-
-
 /*
-
-Write a function that returns the longest word(s) from a sentence. The function should not return any duplicate words (case-insensitive).
+Write a function that returns the longest word(s) from a sentence. 
+The function should not return any duplicate words (case-insensitive).
 
 Example
-
 longestWords("You are just an old antidisestablishmentarian") // ["antidisestablishmentarian"]
 longestWords("I gave a present to my parents") // ["present", "parents"]
 longestWords("Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo") // ["buffalo"] or ["Buffalo"]
-
 */
-
+var longestWords = function(words) {
+  var arr = words.split(' ');
+  var longest = [""];
+  arr.forEach( function ( word ) {
+    if ( word.length >  longest[0].length ) {
+      longest = [word];
+    } else if ( word.length === longest[0].length ) {
+      var allSmall = longest.map( function ( longWord ) {
+        return longWord.toLowerCase();
+      });
+      if ( allSmall.indexOf( word.toLowerCase() ) === -1 ) {
+        longest.push(word);
+      }
+    }
+  });
+  return longest;
+};
 
 /*
-
-If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+If we list all the natural numbers below 10 that are multiples 
+of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
 
 Find the sum of all the multiples of 3 or 5 below 1000.
-
 */
+var sum = 0;
+for (var i = 0; i  < 1000; i++) {
+  if (i % 3 === 0 || i % 5 === 0 ) {
+    sum += i;
+  }
+}
+sum
 
 
 /*
-
-Remove duplicate characters in a given string keeping only the first occurrences. For example, if the input is ‘tree traversal’ the output will be "tre avsl".
-
+Remove duplicate characters in a given string keeping 
+only the first occurrences. For example, if the input 
+is ‘tree traversal’ the output will be "tre avsl".
 */
+
+var removeDuplicate = function (string) {
+  var arr = string.split('');
+  var newStr = '';
+  
+  arr.forEach( function ( current ) {
+    if ( newStr.indexOf(current) === -1 ) {
+      newStr = newStr.concat(current);
+    }
+  });
+  
+  return newStr;
+};
 
 
 
