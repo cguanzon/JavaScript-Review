@@ -34,7 +34,8 @@ var flatten = function(arr) {
 
 
 /*
-Given an array [a1, a2, ..., aN, b1, b2, ..., bN, c1, c2, ..., cN] convert it to [a1, b1, c1, a2, b2, c2, ..., aN, bN, cN]
+Given an array [a1, a2, ..., aN, b1, b2, ..., bN, c1, c2, ..., cN] 
+convert it to [a1, b1, c1, a2, b2, c2, ..., aN, bN, cN]
 */
 var zipperize = function (array) {
   //make 3 sub-arrays, from the example, the array 
@@ -51,11 +52,18 @@ var zipperize = function (array) {
 
 
 /*
-
-There is an array of non-negative integers. A second array is formed by shuffling the elements of the first array and deleting a random element. Given these two arrays, find which element is missing in the second array.
-
+There is an array of non-negative integers. 
+A second array is formed by shuffling the elements of the first array 
+and deleting a random element. 
+Given these two arrays, find which element is missing in the second array.
 */
-
+var findMissingElement = function (beforeArray, afterArray) {
+  for(var i = 0; i < beforeArray.length; i++) {
+    if ( afterArray.indexOf( beforeArray[i] ) === -1 ) {
+      return beforeArray[i];
+    }
+  }
+};
 
 
 
